@@ -1,0 +1,16 @@
+-# %h1 Users#show
+-# %p Find me in app/views/users/show.html.haml
+
+%h1 ユーザー詳細
+%h2= @user.email
+- if @user.id == current_user.id
+- else
+  - if @isRoom == true
+    %p
+      %a{:href => "/rooms/#{@roomId}"} チャットへ
+  - else
+    = form_for @room do |f|
+      = fields_for @entry do |e|
+        = e.hidden_field :user_id, :value=> @user.id
+      = f.submit "チャットを始める"
+= link_to "ユーザー一覧に戻る", users_path
