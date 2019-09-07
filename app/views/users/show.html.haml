@@ -1,16 +1,35 @@
 -# %h1 Users#show
 -# %p Find me in app/views/users/show.html.haml
+= render "devise/shared/header"
+.user-contents
+  .user-page
+    .user-page__image
+      = image_tag "icon-red.png", size: "180x180", alt: "user-image"
+    .user-page__info
+      .user-page__name
+        = @user.name
+      .user-page__follow
+        %p.user-page__follow__moji
+          Follow
+        %p.user-page__follow__count
+          32
+      .user-page__follower
+        %p.user-page__follower__moji
+          Follower
+        %p.user-page__follower__count
+          86.7k
+      - if @user.id == current_user.id
+        .user-page__log-out
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        - if @isRoom == true
+          .message-sender
+            %a{href: "/rooms/#{@roomId}"}♡メッセージ♡
+        - else
+          = form_for @room do |f|
+            = fields_for @entry do |e|
+              = e.hidden_field :user_id, value: user.id
+            = f.submit "ダイレクトメッセージ"
+  .user-post
+    .user-post__card
 
-%h1 ユーザー詳細
-%h2= @user.email
-- if @user.id == current_user.id
-- else
-  - if @isRoom == true
-    %p
-      %a{:href => "/rooms/#{@roomId}"} チャットへ
-  - else
-    = form_for @room do |f|
-      = fields_for @entry do |e|
-        = e.hidden_field :user_id, :value=> @user.id
-      = f.submit "チャットを始める"
-= link_to "ユーザー一覧に戻る", users_path

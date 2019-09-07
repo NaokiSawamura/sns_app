@@ -1,0 +1,23 @@
+.header
+  .header__bar
+    .header__bar__logo
+      %a{href: "/"}
+        = image_tag "logo02.jpg", size: "74x74", alt: "ロゴ"
+    - if user_signed_in?
+      %ul.user__info__sign-in
+        %li.user__info__sign-in__user
+          .header-user-name
+            %a{href: "/users/#{current_user.id}"}
+              = current_user.name
+        %li.user__info__sign-in__time-line
+          .user-logout
+            = link_to "タイムライン"
+        %li.user__info__sign-in__messages
+          .header-dm-list
+            = link_to "DM一覧"
+    - else
+      %ul.user__sign-up
+        %li.user__sign-up__log-in
+          = link_to "ログイン", new_user_session_path, class: 'post'
+        %li.user__sign-up__new
+          = link_to "新規登録", new_user_registration_path, class: 'post'
