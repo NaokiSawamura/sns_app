@@ -1,0 +1,69 @@
+
+= render "devise/shared/header"
+
+.user-edit
+  .edit-card
+    %h1.edit-card__title
+      ユーザー編集
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .edit-card__info
+        .edit-card__info__image
+          = form_for(@user) do |f|
+            - if @user.image?
+              = image_tag @user.image.url
+            - else
+              = image_tag "icon-red.png", size: "180x180", alt: "user-image"
+          = f.file_field :image
+        .edit-card__info__name
+          = f.label :ユーザー名
+          %br/
+          = f.text_field :name, class: 'input-name', placeholder: "新しいユーザー名", autofocus: true, autocomplete: "name"
+        .edit-card__info__email
+          = f.label :email
+          %br/
+          = f.email_field :email, class: 'input-email', placeholder: "Email address", autofocus: true, autocomplete: "email"
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .edit-card__info__password
+          %i 新しいパスワードを入力してください。
+          %br/
+          = f.password_field :password, class: 'input-password', placeholder: "新しいパスワード", autocomplete: "new-password"
+          - if @minimum_password_length
+            %br/
+            %em
+              = @minimum_password_length
+              characters minimum
+        .edit-card__info__password__confirmation
+          %i 再度新しいパスワードを入力してください。
+          %br/
+          = f.password_field :password_confirmation, class: 'input-password', placeholder: "再度、新しいパスワード", autocomplete: "new-password"
+        .edit-card__info__password__current
+          %i 変更前のパスワードを入力してください。
+          %br/
+          = f.password_field :current_password, class: 'input-password', placeholder: "変更前のパスワード",  autocomplete: "current-password"
+        .edit-btn
+          = f.submit '保存', class: 'edit-btn__save'
+          = button_to "キャンセル", registration_path(resource_name), class: 'edit-btn__cancel', data: { confirm: "変更を破棄しますか？" }
+
+
+
+
+-# .container
+-#   .card.card-container
+-#     / <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" />
+-#     %img#profile-img.profile-img-card{:src => "//ssl.gstatic.com/accounts/ui/avatar_2x.png"}/
+-#     %p#profile-name.profile-name-card
+-#     %form.form-signin
+-#       %span#reauth-email.reauth-email
+-#       %input#inputEmail.form-control{:autofocus => "", :placeholder => "Email address", :required => "", :type => "email"}/
+-#       %input#inputPassword.form-control{:placeholder => "Password", :required => "", :type => "password"}/
+-#       #remember.checkbox
+-#         %label
+-#           %input{:type => "checkbox", :value => "remember-me"}/
+-#           Remember me
+-#       %button.btn.btn-lg.btn-primary.btn-block.btn-signin{:type => "submit"} Sign in
+-#     / /form
+-#     %a.forgot-password{:href => "#"}
+-#       Forgot the password?

@@ -4,8 +4,8 @@
 
 .user-contents {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(30deg, #ff5b5bb6, rgba(255, 201, 199, 0.6)),
+  height: 100vh;
+  background: linear-gradient(25deg, #ff5b5bd3, rgba(255, 236, 149, 0.6)),
   url(inu.png);
   background-size: cover;
   padding-top: 30px;
@@ -72,36 +72,90 @@
     }
   }
   &__log-out {
-    margin: 0 auto;
-    width: 130px;
+    float: left;
+    margin-left: 28px;
+    width: 110px;
     height: 30px;
-    background-color: #5b79ff;
+    background-color: #727272;
+    border-radius: 30px;
+    padding-top: 10px;
+    text-align: center;
+  }
+  &__edit {
+    float: left;
+    margin-left: 18px;
+    width: 110px;
+    height: 30px;
+    background-color: #727272;
     border-radius: 30px;
     padding-top: 10px;
     text-align: center;
   }
 }
+
+.current-user {
+  margin-left: 10px;
+  height: 50px;
+  width: 280px;
+}
 .user-page__log-out a{
   color: white;
 }
-.message-sender{
-  margin: 0 auto;
-  width: 130px;
-  height: 30px;
-  background-color: #ff5b5b;
-  border-radius: 30px;
-  padding-top: 10px;
-  text-align: center;
-}
-.message-sender :hover {
-  background-color: #ff5b5b9a;
-}
-.message-sender a{
+.user-page__edit a{
   color: white;
 }
 
-.user-post {
+.follow-btn {
+  float:left;
+  height: 37px;
+  width: 180px;
+  background-color: #ff5b5b;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 12px;
+  margin-left: 10%;
+  font-size: 18px;
+}
+.follow-btn a {
+  color: white;
+}
 
+.message-sender{
+  padding-top: 12px;
+  background-color: white;
+  float: right;
+  margin-right: 10%;
+  font-size: 18px;
+  width: 50px;
+  height: 38px;
+  border: 1px solid #ff5b5b;
+  border-radius: 25%;
+  text-align: center;
+  color: #ff5b5b;
+  cursor: pointer;
+}
+.message-sender a{
+  color: #ff5b5b;
+}
+.new_room {
+  float: right;
+  margin-right: 10%;
+}
+.message-start {
+  font-size: 18px;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ff5b5b;
+  border-radius: 25%;
+  text-align: center;
+  color: #ff5b5b;
+  cursor: pointer;
+}
+.message-start :hover {
+  background-color: #ff8c8c9a;
+}
+.user-post {
   margin: 30px auto;
   width: 80%;
   max-width: 600px;

@@ -19,17 +19,24 @@
         %p.user-page__follower__count
           86.7k
       - if @user.id == current_user.id
-        .user-page__log-out
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
+        .current-user
+          .user-page__edit
+            = link_to "編集", edit_user_registration_path
+          .user-page__log-out
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
       - else
         - if @isRoom == true
-          .message-sender
-            %a{href: "/rooms/#{@roomId}"}♡メッセージ♡
+          .frend-user
+            .follow-btn
+              = link_to "フォロー"
+            .message-sender
+              %a{href: "/rooms/#{@roomId}"}DM
         - else
-          = form_for @room do |f|
-            = fields_for @entry do |e|
-              = e.hidden_field :user_id, value: user.id
-            = f.submit "ダイレクトメッセージ"
-  .user-post
+          .frend-user
+            .follow-btn
+              = link_to "フォロー"
+            = form_for @room do |f|
+              = fields_for @entry do |e|
+                = e.hidden_field :user_id, value: @user.id
+              = f.submit "DM", class: 'message-start', data: { confirm: "DMを開始しますか？" }
     .user-post__card
-
