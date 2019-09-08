@@ -105,19 +105,36 @@
   color: white;
 }
 
-.follow-btn {
+.follow-now {
   float:left;
-  height: 37px;
+  height: 50px;
   width: 180px;
   background-color: #ff5b5b;
+  color: white;
   border-radius: 10px;
   text-align: center;
-  padding-top: 12px;
   margin-left: 10%;
   font-size: 18px;
+  cursor: pointer;
 }
-.follow-btn a {
+.follows {
+  float:left;
+  height: 50px;
+  width: 180px;
+  background-color: #ff5b5b;
   color: white;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 10%;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.user-page__follow__count {
+  color: rgb(48, 48, 48);
+}
+.user-page__follower__count {
+  color: rgb(48, 48, 48);
 }
 
 .message-sender{

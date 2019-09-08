@@ -8,16 +8,17 @@
     .user-page__info
       .user-page__name
         = @user.name
+      - @user ||= current_user
       .user-page__follow
         %p.user-page__follow__moji
           Follow
-        %p.user-page__follow__count
-          32
+        %a.user-page__follow__count{href: "#{following_user_path(@user)}"}
+          = @user.followings.count
       .user-page__follower
         %p.user-page__follower__moji
           Follower
-        %p.user-page__follower__count
-          86.7k
+        %a.user-page__follower__count{href: "#{followers_user_path(@user)}"}
+          = @user.followers.count
       - if @user.id == current_user.id
         .current-user
           .user-page__edit
@@ -28,13 +29,13 @@
         - if @isRoom == true
           .frend-user
             .follow-btn
-              = link_to "フォロー"
+              = render "relationships/follow"
             .message-sender
               %a{href: "/rooms/#{@roomId}"}DM
         - else
           .frend-user
             .follow-btn
-              = link_to "フォロー"
+              = render "relationships/follow"
             = form_for @room do |f|
               = fields_for @entry do |e|
                 = e.hidden_field :user_id, value: @user.id
