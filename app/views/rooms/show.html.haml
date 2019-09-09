@@ -2,10 +2,12 @@
 = render "devise/shared/header"
 .dm-main
   .dm-members
-  - @entries.each do |e|
-    %a{href: "/users/#{e.user.id}"}
-      = e.user.name
-  %hr/
+    .dm-members__list
+      - @entries.each do |e|
+        %a{href: "/users/#{e.user.id}"}
+          = e.user.name
+    .dm-members__moji
+      %p のダイレクトメッセージ
   .messages
     - if @messages.present?
       - @messages.each do |m|
@@ -30,44 +32,9 @@
   .dm-footer
     = form_for @message do |f|
       .dm-footer__input
-        = f.text_field :content, class: 'input-box__text', placeholder: 'メッセージを入力して下さい'
+        = f.text_field :content, class: 'dm-footer__input__text', placeholder: 'メッセージを入力して下さい'
         = f.hidden_field :room_id, value: @room.id
-        = f.label :image, class: 'input-box__image' do
+        = f.label :image, class: 'dm-footer__input__image' do
           = fa_icon 'picture-o', class: 'icon'
           = f.file_field :image, class: 'hidden'
-        = f.submit '送信', class: 'submit-btn'
-
-
--# - if m.user_id == current_user.id
--#   .message__content
--#     = m.content
--#     %small
--#       by
--#       %a.message__user{href: "/users/#{m.user_id}"}
--#         = m.user.name
--#   .message__time
--#     = m.created_at.strftime("%Y/%m/%d %H:%M")
--#   .item
--#     %i.right.triangle.icon
--#     = message.body
--# - else
--#   .message__content
--#     = m.content
--#     %small
--#       by
--#       %a.message__user{href: "/users/#{m.user_id}"}
--#         = m.user.name
--#   .message__time
--#     = m.created_at.strftime("%Y/%m/%d %H:%M")
-
-
--# - if message.user_id == current_user.id
--#   / 自分のメッセージ
--#   - user = User.find(message.user_id)
--#   %strong= user.name
--#   = message.message_time
--#   .item
--#     %i.right.triangle.icon
--#     = message.body
--# - else
--#   / 相手のメッセージ
+        = f.submit '送信', class: 'dm-footer__input__submit-btn'
