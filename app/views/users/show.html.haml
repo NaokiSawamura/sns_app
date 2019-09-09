@@ -24,7 +24,7 @@
           .user-page__edit
             = link_to "編集", edit_user_registration_path
           .user-page__log-out
-            = link_to "ログアウト", destroy_user_session_path, method: :delete
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }
       - else
         - if @isRoom == true
           .frend-user

@@ -1,24 +1,73 @@
 
 = render "devise/shared/header"
 .dm-main
+  .dm-members
   - @entries.each do |e|
-    %h5
-      %a{href: "/users/#{e.user.id}"}
-        = e.user.name
-%hr/
-- if @messages.present?
-  - @messages.each do |m|
-    %strong= m.content
-    %small
-      by
-      %strong
-        %a{href: "/users/#{m.user_id}"}
-          = m.user.name
-    %hr/
-- else
-  %h3.text-center メッセージはまだありません
-= form_for @message do |f|
-  = f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70
-  = f.hidden_field :room_id, value: @room.id
-  %br/
-  = f.submit "送信"
+    %a{href: "/users/#{e.user.id}"}
+      = e.user.name
+  %hr/
+  .messages
+    - if @messages.present?
+      - @messages.each do |m|
+        - if m.user_id == current_user.id
+          .current-user__message
+            .current-user__message__content
+              = m.content
+            .current-user__message__time
+              = m.created_at.strftime("%Y/%m/%d %H:%M")
+            -# %p.current-user__message__user
+            -#   = m.user.name
+        - else
+          .frend-user__message
+            .frend-user__message__content
+              = m.content
+            .frend-user__message__time
+              = m.created_at.strftime("%Y/%m/%d %H:%M")
+            %a.frend-user__message__user{href: "/users/#{m.user_id}"}
+              = m.user.name
+    - else
+      %h3.text-center メッセージはまだありません
+  .dm-footer
+    = form_for @message do |f|
+      .dm-footer__input
+        = f.text_field :content, class: 'input-box__text', placeholder: 'メッセージを入力して下さい'
+        = f.hidden_field :room_id, value: @room.id
+        = f.label :image, class: 'input-box__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+        = f.submit '送信', class: 'submit-btn'
+
+
+-# - if m.user_id == current_user.id
+-#   .message__content
+-#     = m.content
+-#     %small
+-#       by
+-#       %a.message__user{href: "/users/#{m.user_id}"}
+-#         = m.user.name
+-#   .message__time
+-#     = m.created_at.strftime("%Y/%m/%d %H:%M")
+-#   .item
+-#     %i.right.triangle.icon
+-#     = message.body
+-# - else
+-#   .message__content
+-#     = m.content
+-#     %small
+-#       by
+-#       %a.message__user{href: "/users/#{m.user_id}"}
+-#         = m.user.name
+-#   .message__time
+-#     = m.created_at.strftime("%Y/%m/%d %H:%M")
+
+
+-# - if message.user_id == current_user.id
+-#   / 自分のメッセージ
+-#   - user = User.find(message.user_id)
+-#   %strong= user.name
+-#   = message.message_time
+-#   .item
+-#     %i.right.triangle.icon
+-#     = message.body
+-# - else
+-#   / 相手のメッセージ
