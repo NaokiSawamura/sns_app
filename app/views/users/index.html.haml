@@ -2,15 +2,14 @@
 -# %p Find me in app/views/users/index.html.haml
 
 = render "devise/shared/header"
--# = render "rooms/room_index"
 .wrapper
   .body
     - if user_signed_in?
-      .index__user-name
+      .index__user
         - @users.each do |u|
           %a{href: "/users/#{u.id}"}
-            = u.name
-    - else
-      = link_to "ユーザーを登録する", new_user_registration_path
-      %br/
-      = link_to "ログインする", new_user_session_path
+            .index__user__name
+              = u.name 
+        .users-paginate
+          .users-paginate__page
+            = paginate(@users)

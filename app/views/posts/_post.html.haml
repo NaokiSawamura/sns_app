@@ -1,0 +1,22 @@
+.main-contents
+  .card
+    -# .card-img
+      -# - if post.image.present?
+      -#   = image_tag src="#{post.image}", size: "500x300" 
+      -# - else
+      -#   = image_tag src='no-image.png', size: "500x300"
+    .card-content
+      .card-content__left
+        .card-content__left__name
+          %a{href: "/users/#{post.user.id}"}
+            = post.user.name
+      .card-content__right
+        .card-content__right__top
+          .card-content__right__top__date
+            = post.created_at.strftime("%Y/%m/%d %H:%M")
+          - if user_signed_in? && current_user.id == post.user_id
+            = link_to '編集', edit_post_path(post.id), class: "post-edit", method: :get
+            = link_to '削除', "/posts/#{post.id}", class: "post-delete", method: :delete
+        .card-content__right__bottom
+          .card-content__right__bottom__text
+            = simple_format(post.text)

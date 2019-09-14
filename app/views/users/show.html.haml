@@ -40,4 +40,9 @@
               = fields_for @entry do |e|
                 = e.hidden_field :user_id, value: @user.id
               = f.submit "DM", class: 'message-start', data: { confirm: "DMを開始しますか？" }
-    .user-post__card
+  .user-post__card
+    - @posts.each do |post|
+      = render partial: "posts/post", locals: { post: post }
+    .show-paginate
+      .show-paginate__page
+        = paginate(@posts)

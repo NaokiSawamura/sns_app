@@ -1,0 +1,124 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.timeline {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(25deg, #ff5b5bd3, rgba(255, 236, 150, 0.6)),
+  url(inu.png);
+  background-size: cover;
+}
+
+.timeline-container {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 600px;
+  min-width: 510px;
+  height: 100%;
+  background: linear-gradient(25deg, #ff5b5bd3, rgba(255, 236, 150, 0.6));
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+.timeline-submit {
+  width: 100%;
+  height: 60px;
+  max-width: 600px;
+  min-width: 510px;
+  margin-bottom: 30px;
+  padding-top: 30px;
+  &__btn {
+    display: block;
+    padding-top: 18px;
+    text-align: center;
+    margin: 0 auto;
+    width: 150px;
+    height: 42px;
+    background-color: #ff5b5b;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  }
+  &__btn :hover {
+    opacity: 0.8;
+  }
+}
+
+.card-content{
+  // background-color: rgb(65, 225, 190);
+  margin: 0 auto;
+  width: 100%;
+  // max-width: 600px;
+  // min-width: 510px;
+  min-height: 65px;
+  max-height: 980px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: baseline;
+  position: relative;
+  &__left {
+    margin-left: 15px;
+    height: 60px;
+    width: 130px;
+    float: left;
+    // background-color: olive;
+    position: relative;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.card-content__left__name a{
+  display: block;
+  padding: 18px 0 18px 18px;
+  color: white;
+  width: 86%;
+  background-color: #ff5b5bd7;
+  border-radius: 8px 0 0 8px;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+  position: absolute;
+  top: 0;
+}
+
+.card-content__left__name a :hover {
+  opacity: 0.8;
+}
+
+.card-content__right {
+  padding: 0 5px;
+  margin-left: 140px;
+  margin-right: 10px;
+  width: 100%;
+  max-width: 3700px;
+  min-width: 364px;
+  // background-color: royalblue;
+  float: left;
+  border-radius: 0 8px 8px 0;
+  min-height: 60px;
+  &__top {
+    width: 100%;
+    height: 30px;
+    background-color: rgba(245, 245, 245, 0.85);
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(182, 182, 182, 0.7);
+    border-radius: 0 8px 0 0;
+    &__date {
+      color: gray;
+      font-size: 14px;
+      padding: 7px 5px 0 10px;
+    }
+  }
+  &__bottom {
+    width: 100%;
+    min-height: 26px;
+    max-height: 600px;
+    &__text{
+      padding: 4px 5px 0 10px;
+      min-height: 26px;
+      background-color: rgba(245, 245, 245, 0.85);
+      box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+      word-wrap:break-word;
+      border-radius: 0 0 8px 0;
+    }
+  }
+}
+
