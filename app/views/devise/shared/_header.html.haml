@@ -11,10 +11,13 @@
               = current_user.name
         %li.user__info__sign-in__time-line
           .user-logout
-            = link_to "タイムライン"
+            = link_to "タイムライン", posts_path
+        %li.user__info__sign-in__notice
+          .user-notice
+            = link_to "通知", posts_path
         %li.user__info__sign-in__messages
           .header-dm-list
-            = link_to "DM一覧"
+            = link_to "暇人一覧", users_path, method: :get
     - else
       %ul.user__sign-up
         %li.user__sign-up__log-in

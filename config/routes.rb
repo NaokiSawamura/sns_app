@@ -5,9 +5,11 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  root "users#index"
+  root 'posts#index' 
   resources :messages, only: [:create]
   resources :rooms, only: [:new, :create, :show, :index, :edit, :update]
   resources :relationships, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :posts, except: :show
+  get   'users/:id'   =>  'users#show'
 end
