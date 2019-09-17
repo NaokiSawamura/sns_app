@@ -2,16 +2,7 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = current_user
-    @currentEntries = current_user.entries
-    myRoomIds = []
-    
-    @currentEntries.each do |entry|
-    myRoomIds << entry.room.id
-    end
-    
-    @anotherEntries = Entry.where(room_id: myRoomIds).where(‘user_id != ?’,@user.id)
-    end
+  end
 
   def create
     @room = Room.create
@@ -25,7 +16,7 @@ class RoomsController < ApplicationController
     if Entry.where(user_id: current_user.id, room_id: @room.id).present?
       @messages = @room.messages
       @message = Message.new
-      @entries = @room.entries
+      @entries = @room.entries.where.not(user_id: current_user.id)
     else
       redirect_back(fallback_location: root_path)
     end

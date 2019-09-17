@@ -1,0 +1,98 @@
+// サインアップ
+
+.sign-up {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(25deg, #ff5b5bd3, rgba(255, 236, 150, 0.6)),
+  url(inu.png);
+  background-size: cover;
+  &__title {
+    text-align: center;
+    padding-top: 20px;
+  }
+}
+
+.sign-up__container {
+  margin: 20px auto;
+  width: 65%;
+  max-width: 450px;
+  min-width: 380px;
+  // height: 250px;
+  max-height: 320px;
+  background-color: rgba(245, 245, 245, 0.85);
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding-top: 10px;
+  &__name, &__mail, &__pass {
+    display: block;
+    height: 25px;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  &__btn {
+    display: block;
+    background-color: #ff5b5b;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+    margin: 0 auto;
+    border-radius: 0 0 10px 10px;
+    color: white;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+// ログイン
+
+.log-in {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(25deg, #ff5b5bd3, rgba(255, 236, 150, 0.6)),
+  url(inu.png);
+  background-size: cover;
+  &__title {
+    text-align: center;
+    padding-top: 20px;
+  }
+  &__field{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.log-in__container {
+  margin: 20px auto;
+  width: 65%;
+  max-width: 450px;
+  min-width: 380px;
+  // height: 250px;
+  max-height: 320px;
+  background-color: rgba(245, 245, 245, 0.85);
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding-top: 10px;
+  &__name, &__mail, &__pass {
+    display: block;
+    height: 25px;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  &__btn {
+    display: block;
+    background-color: #ff5b5b;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+    margin: 0 auto;
+    border-radius: 0 0 10px 10px;
+    color: white;
+  }
+  p {
+    text-align: center;
+  }
+}
+

@@ -1,10 +1,14 @@
-.header__bar{
+.header {
   min-height: 80px;
   width: 100%;
-  background-color: white;
   box-shadow: 0px 2.5px 1px rgba(0,0,0,0.2);
-  position: relative;
+}
 
+.header__bar{
+  margin: 0 auto;
+  width: 70%;
+  height: 80px;
+  min-width: 600px;
   &__logo{
     padding-left: 25px;
     float: left;
@@ -13,18 +17,21 @@
     opacity: 0.8;
   }
 }
-.sign-in__user {
-  height: 30px;
-  width: 120px;
-  box-sizing:border-box;
-  &__user-name{
-    font-size: 17px;
-    line-height: 1.5em;
-  }
-}
+
 .user__info__sign-in {
-  margin-right: 15px;
-  padding-right: 20px;
+  float: right;
+  height: 80px;
+  width: 390px;
+  min-width: 300px;
+  &__user {
+    height: 30px;
+    width: 120px;
+    box-sizing:border-box;
+    &__name{
+      font-size: 17px;
+      line-height: 1.5em;
+    }
+  }
   &__time-line, &__user, &__messages, &__notice{
     height: 80px;
     width: 130px;
@@ -34,6 +41,7 @@
     position: relative;
   }
 }
+
 .user__info__sign-in :hover{
   background-color: #ff5b5b;
   color: white;
@@ -67,11 +75,20 @@
   margin-right: 15px;
   padding-right: 50px;
   &__log-in, &__new{
-    padding-top: 1.2em;
-    height: 30px;
+    height: 50px;
     width: 95px;
-    margin: 10px 15px;
     float: right;
     text-align: center;
+    padding-top: 30px;
   }
+}
+
+.user__sign-up a {
+  color: #ff5b5b;
+  padding: 40px 15px 30px;
+}
+
+.user__sign-up :hover {
+  background-color: #ff5b5b;
+  color: white;
 }

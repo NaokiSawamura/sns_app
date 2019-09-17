@@ -2,12 +2,13 @@
 = render "devise/shared/header"
 .dm-main
   .dm-members
-    .dm-members__list
-      - @entries.each do |e|
-        %a{href: "/users/#{e.user.id}"}
-          = e.user.name
-    .dm-members__moji
-      %p のダイレクトメッセージ
+    .dm-members__lists
+      .dm-members__list
+        - @entries.each do |e|
+          %a{href: "/users/#{e.user.id}"}
+            = e.user.name
+      .dm-members__moji
+        %p さんとのダイレクトメッセージ
   .messages
     - if @messages.present?
       - @messages.each do |m|

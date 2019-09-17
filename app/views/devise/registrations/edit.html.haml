@@ -26,19 +26,19 @@
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           %div
             Currently waiting confirmation for: #{resource.unconfirmed_email}
-        .edit-card__info__password
-          %i 新しいパスワードを入力してください。
-          %br/
-          = f.password_field :password, class: 'input-password', placeholder: "新しいパスワード", autocomplete: "new-password"
-          - if @minimum_password_length
-            %br/
-            %em
-              = @minimum_password_length
-              characters minimum
-        .edit-card__info__password__confirmation
-          %i 再度新しいパスワードを入力してください。
-          %br/
-          = f.password_field :password_confirmation, class: 'input-password', placeholder: "再度、新しいパスワード", autocomplete: "new-password"
+        -# .edit-card__info__password
+        -#   %i 新しいパスワードを入力してください。
+        -#   %br/
+        -#   = f.password_field :password, class: 'input-password', placeholder: "新しいパスワード", autocomplete: "new-password"
+        -#   - if @minimum_password_length
+        -#     %br/
+        -#     %em
+        -#       = @minimum_password_length
+        -#       characters minimum
+        -# .edit-card__info__password__confirmation
+        -#   %i 再度新しいパスワードを入力してください。
+        -#   %br/
+        -#   = f.password_field :password_confirmation, class: 'input-password', placeholder: "再度、新しいパスワード", autocomplete: "new-password"
         .edit-card__info__password__current
           %i 変更前のパスワードを入力してください。
           %br/
@@ -46,7 +46,6 @@
         .edit-btn
           = f.submit '保存', class: 'edit-btn__save'
           = button_to "キャンセル", registration_path(resource_name), class: 'edit-btn__cancel', data: { confirm: "変更を破棄しますか？" }
-
 
 
 

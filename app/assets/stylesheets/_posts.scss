@@ -38,8 +38,8 @@
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
   }
-  &__btn :hover {
-    opacity: 0.8;
+  &__btn:hover {
+    background-color: #ff5b5bcc;
   }
 }
 
@@ -72,15 +72,15 @@
   padding: 18px 0 18px 18px;
   color: white;
   width: 86%;
-  background-color: #ff5b5bd7;
+  background-color: #ff5b5b;
   border-radius: 8px 0 0 8px;
   box-shadow: 0 2px 2px rgba(0,0,0,0.2);
   position: absolute;
   top: 0;
 }
 
-.card-content__left__name a :hover {
-  opacity: 0.8;
+.card-content__left__name a:hover {
+  background-color: #ff5b5bcc;
 }
 
 .card-content__right {
@@ -122,3 +122,52 @@
   }
 }
 
+// ここから投稿画面
+
+.posts {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(25deg, #ff5b5bd3, rgba(255, 236, 150, 0.6)),
+  url(inu.png);
+  background-size: cover;
+  &__container{
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
+    min-width: 510px;
+    height: 100%;
+    background: linear-gradient(25deg, #ff5b5bd3, rgba(255, 236, 150, 0.6));
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
+  &__new-posts {
+    text-align: center;
+    width: 95%;
+    margin: 0 auto 15px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    padding-bottom: 5px;
+    color: rgb(90, 90, 90);
+  }
+}
+
+.post-form {
+  width: 74%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  position: relative;
+  &__submit{
+    // padding-top: 18px;
+    text-align: center;
+    width: 110px;
+    height: 74px;
+    background-color: #ff5b5b;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+    position: absolute;
+  }
+}
+
+.post-form__submit:hover {
+  background-color: #ff5b5bcc;
+}

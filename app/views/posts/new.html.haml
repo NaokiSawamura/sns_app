@@ -1,13 +1,15 @@
 = render "devise/shared/header"
 
 .posts
-  .container
+  .posts__container
     = form_tag('/posts', method: :post) do
-      .post__title
-        投稿する
-      .post__image
-        %input{autofocus: "true", name: "image", placeholder: "Image URL", type: "text"}/
-      .post__content
-        %textarea{cols: "30", name: "text", placeholder: "text", rows: "10"}
-      .post__submit
-        %input{type: "submit", value: "SENT", href: "/posts"}/
+      .post-form
+        -# .post__image
+        -#   %input{autofocus: "true", name: "image", placeholder: "Image URL", type: "text"}/
+        
+        %textarea{cols: "35", name: "text", placeholder: "入力する", rows: "3", class: "post-form__content"}
+        %input{type: "submit", value: "投稿する", href: "/posts", class: "post-form__submit", data: { confirm: "投稿は削除、編集できませんがよろしいですか？" }}/
+    %p.posts__new-posts
+      最新の５件
+    - @posts.each do |post|
+      = render partial: "post", locals: { post: post }, class: "timeline-container__post-contents"
