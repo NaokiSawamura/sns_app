@@ -151,7 +151,7 @@
   display: none;
 }
 
-// 各DMのcss
+// 各DMのcss dmRoom
 
 .dmRoom {
   width: 100%;
@@ -161,15 +161,16 @@
   background-size: cover;
   padding-top: 30px;
   &__container {
+    text-align: center;
     margin: 20px auto;
     width: 80%;
     max-width: 530px;
     min-width: 380px;
     height: 520px;
     max-height: 600px;
-    background-color: rgba(245, 245, 245, 0.85);
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-    border-radius: 10px;
+    // background-color: rgba(245, 245, 245, 0.85);
+    // box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    // border-radius: 10px;
     padding-top: 30px;
     &__list {
       margin: 0 auto 20px;
@@ -186,4 +187,22 @@
 }
 .dmRoom__container__list:hover {
   background-color: #ff5b5bcc;
+}
+
+.dm-start {
+  display: block;
+  margin: 20px auto 0;
+  padding-top: 28px;
+  text-align: center;
+  width: 40%;
+  height: 52px;
+  background-color: #ff5b5b;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.dm-start-text {
+  font-size: 24px;
+  color: rgb(70, 70, 70);
 }

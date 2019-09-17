@@ -1,10 +1,14 @@
 = render "devise/shared/header"
 .dmRoom
   .dmRoom__container
-    - @anotherEntries.each do |e|
-      = link_to room_path(e.room.id) do
-        .dmRoom__container__list
-          = e.user.name
-          さんとのDM
+    - if @anotherEntries.present?
+      - @anotherEntries.each do |e|
+        = link_to room_path(e.room.id) do
+          .dmRoom__container__list
+            = e.user.name
+            さんとのDM
+    - else
+      %h3.dm-start-text 誰かとDMを始めてみよう！
+      = link_to "暇人一覧", users_path, method: :get, class: "dm-start"
   .show-paginate__page
     = paginate(@anotherEntries)
