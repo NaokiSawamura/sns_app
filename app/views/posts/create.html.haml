@@ -1,7 +1,8 @@
 = render "devise/shared/header"
 
-.contents.row
-  .success
-    %h3
-      投稿が完了しました。
-    = link_to "タイムラインに戻る", posts_path
+.post-success
+  .post-success__container
+    .post-success__container__moji
+      %h3
+        投稿が完了しました。
+    = link_to "戻る", posts_path, class: "post-success__container__btn"
