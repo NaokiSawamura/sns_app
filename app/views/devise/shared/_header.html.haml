@@ -1,20 +1,19 @@
 .header
   .header__bar
-    .header__bar__logo
-      %a{href: "/"}
-        = image_tag "logo02.jpg", size: "74x74", alt: "ロゴ"
+    %a{href: "/", class: "header__bar__logo"}
+      = image_tag "logo02.jpg", size: "74x74", alt: "ロゴ"
     - if user_signed_in?
       %ul.user__info__sign-in
         %li.user__info__sign-in__user
-          .header-user-name
+          .user__info__sign-in__user__name
             %a{href: "/users/#{current_user.id}"}
               = current_user.name
         %li.user__info__sign-in__time-line
           .user-logout
             = link_to "タイムライン", posts_path
-        %li.user__info__sign-in__notice
-          .user-notice
-            = link_to "通知", posts_path
+        -# %li.user__info__sign-in__notice
+        -#   .user-notice
+        -#     = link_to "通知", dmRoom_user_path
         %li.user__info__sign-in__messages
           .header-dm-list
             = link_to "暇人一覧", users_path, method: :get

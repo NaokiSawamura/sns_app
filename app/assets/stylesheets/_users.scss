@@ -13,7 +13,7 @@
 
 .user-page {
   margin: 0 auto;
-  width: 80%;
+  width: 10%;
   max-width: 600px;
   min-width: 510px;
   height: 215px;
@@ -72,24 +72,24 @@
       font-size: 20px;
     }
   }
-  &__log-out {
+  &__dmRoom {
     float: left;
-    margin-left: 28px;
+    margin-left: 23px;
     width: 110px;
-    height: 30px;
-    background-color: #727272;
+    height: 33px;
+    background-color: #ff5b5b;
     border-radius: 30px;
-    padding-top: 10px;
+    padding-top: 9px;
     text-align: center;
   }
   &__edit {
     float: left;
-    margin-left: 18px;
+    margin-left: 23px;
     width: 110px;
-    height: 30px;
+    height: 33px;
     background-color: #727272;
     border-radius: 30px;
-    padding-top: 10px;
+    padding-top: 9px;
     text-align: center;
   }
 }
@@ -98,12 +98,17 @@
   margin-left: 10px;
   height: 50px;
   width: 280px;
+  a {
+    color: white;
+  }
 }
-.user-page__log-out a{
-  color: white;
+
+.user-page__edit:hover {
+  background-color: #727272cc;
 }
-.user-page__edit a{
-  color: white;
+
+.user-page__dmRoom:hover {
+  background-color: #ff5b5bcc;
 }
 
 .follow-now {

@@ -1,0 +1,28 @@
+= render "devise/shared/header"
+.user-edit
+  .edit-card
+    %h1.edit-card__title
+      アカウント編集
+    = form_for(current_user) do |f|
+      .edit-card__info
+        -# .edit-card__info__image
+          -# - if @user.image.present?
+          -#   = image_tag @user.image.url
+          -# - else
+          -#   = image_tag "icon-red.png", size: "180x180", alt: "user-image"
+        .edit-card__info__name
+          = f.label :ユーザー名
+          %br/
+          = f.text_field :name, class: 'input-name', placeholder: "新しいユーザー名", autofocus: true, autocomplete: "name"
+        .edit-card__info__email
+          = f.label :email
+          %br/
+          = f.email_field :email, class: 'input-email', placeholder: "Email address", autofocus: true, autocomplete: "email"
+        .edit-card__info__password__current
+          = f.label :確認のため、パスワードを入力してください。
+          %br/
+          = f.password_field :current_password, class: 'input-password', placeholder: "変更前のパスワード",  autocomplete: "current-password"
+      .edit-btn
+        = f.submit '保存', class: 'edit-btn__save'
+        = link_to "キャンセル", user_path, class: 'edit-btn__cancel', data: { confirm: "変更を破棄しますか？" }
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "log-out-btn"

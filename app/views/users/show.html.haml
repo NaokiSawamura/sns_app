@@ -21,10 +21,8 @@
           = @user.followers.count
       - if @user.id == current_user.id
         .current-user
-          .user-page__edit
-            = link_to "編集", edit_user_registration_path
-          .user-page__log-out
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }
+          = link_to "編集", edit_user_path(current_user), class: "user-page__edit"
+          = link_to "DM一覧", dmRoom_user_path, class: "user-page__dmRoom"
       - else
         - if @isRoom == true
           .frend-user

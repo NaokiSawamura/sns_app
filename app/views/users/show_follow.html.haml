@@ -3,3 +3,4 @@
   .follow-members__list
     - @user.followings.each do |user|
       .member= link_to user.name, user_path(user)
+      %a{href: "/rooms/#{@roomId}"}
