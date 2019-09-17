@@ -72,3 +72,5 @@ gem 'fog-aws'
 gem 'mini_magick'
 gem 'jquery-turbolinks'
 gem 'kaminari'
+
+gem 'pg', group: :production
