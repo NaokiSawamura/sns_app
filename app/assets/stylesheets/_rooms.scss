@@ -38,10 +38,12 @@
 }
 
 .text-center {
-  margin: auto;
+  padding-top: 130px;
+  text-align: center;
 }
 
 .messages {
+  overflow: scroll;
   margin: 0 auto 10px;
   width: 90%;
   max-width: 600px;
