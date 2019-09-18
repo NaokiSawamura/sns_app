@@ -51,10 +51,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# group :production do
-#   gem 'pg', '0.20.0'
-#   gem 'rails_12factor'
-# end
+group :production do
+  gem 'pg', '0.20.0'
+  gem 'rails_12factor'
+end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
@@ -77,5 +77,6 @@ gem 'fog-aws'
 gem 'mini_magick'
 gem 'jquery-turbolinks'
 gem 'kaminari'
+
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
